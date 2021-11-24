@@ -23,8 +23,8 @@ docker image ls
 docker info
 docker image history
 docker container run 05a3bd381fc2
-docker container ls
-docker container ls -a
+docker container ls     (or) docker ps
+docker container ls -a   (or) docker ps -a
 docker search centos:centos7.4.1708
 
 docker container run -i -t --name centOS 5076a7d1a386
