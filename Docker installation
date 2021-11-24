@@ -1,0 +1,94 @@
+steps to install docker URL https://docs.docker.com/engine/install/ubuntu/#install-using-the-convenience-script
+
+Prerequisites
+OS requirements
+
+To install Docker Engine, you need the 64-bit version of one of these Ubuntu versions:
+
+    Ubuntu Impish 21.10
+    Ubuntu Hirsute 21.04
+    Ubuntu Focal 20.04 (LTS)
+    Ubuntu Bionic 18.04 (LTS)
+
+
+Uninstall old versions
+
+Older versions of Docker were called docker, docker.io, or docker-engine. If these are installed, uninstall them:
+
+ sudo apt-get remove docker docker-engine docker.io containerd runc
+
+
+Installation methods
+ 1.Install using the repository
+      Set up the repository
+
+   i) Update the apt package index and install packages to allow apt to use a repository over HTTPS:
+
+         sudo apt-get update
+
+      sudo apt-get install \
+       ca-certificates \
+       curl \
+       gnupg \
+       lsb-release
+    
+    ii)Add Docker’s official GPG key:
+
+ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+    
+    iii)Use the following command to set up the stable repository. To add the nightly or test repository, add the word nightly or test (or both) after the word stable in the commands below. Learn about nightly and test channels.
+
+ echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+  
+  iv)  Install Docker Engine
+           sudo apt-get update
+
+            sudo apt-get install docker-ce docker-ce-cli containerd.io
+    
+    To install a specific version of Docker Engine, list the available versions in the repo, then select and install:    
+
+        a. List the versions available in your repo:
+
+            apt-cache madison docker-ce
+        
+        b. Install a specific version using the version string from the second column, for example, 5:18.09.1~3-0~ubuntu-xenial.
+
+            sudo apt-get install docker-ce=<VERSION_STRING> docker-ce-cli=<VERSION_STRING> containerd.io
+     V) Verify that Docker Engine is installed correctly by running the hello-world image.
+
+           sudo docker run hello-world
+
+            This command downloads a test image and runs it in a container. When the container runs, it prints a message and exits.       
+            
+            
+2.Install from a package
+  i)Go to https://download.docker.com/linux/ubuntu/dists/, choose your Ubuntu version, then browse to pool/stable/, choose amd64, armhf, arm64, or s390x, and download the .deb file for the Docker Engine version you want to install.
+  ii)nstall Docker Engine, changing the path below to the path where you downloaded the Docker package.
+
+      sudo dpkg -i /path/to/package.deb
+      
+  iii) Verify that Docker Engine is installed correctly by running the hello-world image.
+
+       sudo docker run hello-world
+       
+       
+ 3.Install using the convenience script
+  i) curl -fsSL https://get.docker.com -o get-docker.sh
+
+     DRY_RUN=1 sh ./get-docker.sh
+     
+     curl -fsSL https://get.docker.com -o get-docker.sh
+
+     sudo sh get-docker.sh
+    
+     curl -fsSL https://test.docker.com -o test-docker.sh
+
+     sudo sh test-docker.sh
+       
+       
+
+
+
+    
