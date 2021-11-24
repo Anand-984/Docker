@@ -36,7 +36,9 @@ Allows you to assign a MAC address to a container, making it appear as a physica
 
 
 # Demenastration 
+The link below offers a nice how too, on connecting two containers. You can skip the attach portion, since that is just a useful how to on adding items to images.
 
+https://web.archive.org/web/20160310072132/https://deis.com/blog/2016/connecting-docker-containers-1/
 To demenistrate this concept lets start with birdge network. 
 You can check networks in docker by using 
 ```sh
